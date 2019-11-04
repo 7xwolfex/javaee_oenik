@@ -1,5 +1,6 @@
 package com.sportsbetting.domain;
 
-public class User {
+public abstract class User {
     String email, password;
+
 }

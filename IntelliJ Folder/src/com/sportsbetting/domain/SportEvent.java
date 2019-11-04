@@ -8,4 +8,5 @@ public class SportEvent {
     LocalDateTime startDate, endDate;
     Result result;
     List<Bet> bets;
+
 }

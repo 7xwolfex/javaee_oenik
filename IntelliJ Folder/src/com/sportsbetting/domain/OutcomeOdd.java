@@ -7,4 +7,5 @@ public class OutcomeOdd {
     BigDecimal value;
     LocalDateTime validFrom, validUntil;
     Outcome outcome;
+
 }

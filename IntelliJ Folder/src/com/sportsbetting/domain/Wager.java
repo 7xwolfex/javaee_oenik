@@ -11,5 +11,6 @@ public class Wager {
 
     OutcomeOdd odd;
     Player player;
+
     Currency currency;
 }
