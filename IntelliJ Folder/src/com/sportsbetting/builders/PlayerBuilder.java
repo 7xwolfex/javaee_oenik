@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 
 public class PlayerBuilder {
     String name = "NAME_NOT_SET";
-    Integer accountNumber = Integer.MIN_VALUE;
-    BigDecimal balance = BigDecimal.valueOf(Long.MIN_VALUE);
-    LocalDate birth = LocalDate.MIN;
+    Integer accountNumber = 0;
+    BigDecimal balance = BigDecimal.valueOf(0);
+    LocalDate birth = LocalDate.now();
     Currency currency = Currency.EUR;
 
     public PlayerBuilder SetName(String name){
@@ -43,9 +43,9 @@ public class PlayerBuilder {
 
     public PlayerBuilder Reset(){
         name = "NAME_NOT_SET";
-        accountNumber = Integer.MIN_VALUE;
-        balance = BigDecimal.valueOf(Long.MIN_VALUE);
-        birth = LocalDate.MIN;
+        accountNumber = 0;
+        balance = BigDecimal.valueOf(0);
+        birth = LocalDate.now();
         currency = Currency.EUR;
         return this;
     }

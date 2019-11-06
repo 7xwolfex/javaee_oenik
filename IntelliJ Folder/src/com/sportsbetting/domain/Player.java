@@ -31,7 +31,26 @@ public class Player extends User{
                 .append(NumberFormat.getNumberInstance(Locale.FRENCH).format(balance) + " ")
                 .append(currency.name())
                 .append(System.lineSeparator())
-                //.append("Currency: ").append(currency + System.lineSeparator())
                 .toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAccountNumber() {
+        return accountNumber;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public LocalDate getBirth() {
+        return birth;
+    }
+
+    public Currency getCurrency() {
+        return currency;
     }
 }

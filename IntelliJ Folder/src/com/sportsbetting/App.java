@@ -1,13 +1,11 @@
 package com.sportsbetting;
 
-import com.sportsbetting.builders.PlayerBuilder;
-import com.sportsbetting.domain.Currency;
-import com.sportsbetting.domain.Player;/////////////////////////////
+import com.sportsbetting.domain.Player;
+import com.sportsbetting.domain.SportEvent;
 import com.sportsbetting.service.SportsBettingService;
 import com.sportsbetting.view.View;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.List;
 
 public class App {
     SportsBettingService sportsBettingService;
@@ -18,28 +16,23 @@ public class App {
         this.view = view;
     }
 
-    public static void main(String[] args) {
-        System.out.println("Hello world!\nYour new players are:");
+    public void play(){
         createPlayer();
+        doBetting();//what do you want to bet on, what amount (can bet on multiple matches)
+        calculateResults();
+        printResults();
     }
 
-    public void play(){}
-    public static void createPlayer(){
-        PlayerBuilder PB = new PlayerBuilder();
-        Player myPlayer = PB
-                .SetName("Joe")
-                .SetAccountNumber(453234)
-                .SetBalance(BigDecimal.valueOf(100_000))
-                .SetBirth(LocalDate.of(1998,1,21))
-                .SetCurrency(Currency.HUF)
-                .GetPlayer();
-        StringBuilder sb = new StringBuilder();
-        sb.append(PB.toString()).append(System.lineSeparator());
-        PB.Reset();
-        sb.append(PB.toString());
-        System.out.println(sb.toString());
+    public void createPlayer(){
+        Player player = view.readPlayerData();
+        view.printWelcomeMessage(player);
+        view.printBalance(player);
     }
-    public void doBetting(){}
+    public void doBetting(){
+        List<SportEvent> events = sportsBettingService.findAllSportEvents();
+        String outputString = events.toString();
+        System.out.println(outputString);
+    }
     public void calculateResults(){}
     public void printResults(){}
 }
