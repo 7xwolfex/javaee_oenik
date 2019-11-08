@@ -16,12 +16,12 @@ import java.util.Random;
 
 public class SportsBettingService {
     public void savePlayer(Player player){
-        //saved into a file
+        //saved into a LIST
     }
 
     public Player findPlayer(){
         PlayerBuilder PB = new PlayerBuilder();
-        return PB.GetPlayer();//finds the player among the files(?)
+        return PB.GetPlayer();//finds the player in the LIST
     }
 
     public List<SportEvent> findAllSportEvents(){
@@ -44,7 +44,7 @@ public class SportsBettingService {
             seb
                     .SetTitle(sb.toString())
                     .SetBets(new ArrayList<>())
-                    .SetEndDateTime(LocalDateTime.now().plusMonths(1))
+                    .SetEndDateTime(LocalDateTime.now().plusDays(1).plusHours(2))
                     .SetResult(new Result(new ArrayList<>()))
                     .SetStartDateTime(LocalDateTime.now().plusDays(1));//builds a single sport event
 
@@ -54,7 +54,7 @@ public class SportsBettingService {
     }
 
     public void saveWager(Wager wager){
-        //saves into a file(?)
+        //saves into a LIST
     }
 
     public List<Wager> findAllWagers(){

@@ -1,6 +1,7 @@
 package com.sportsbetting.domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
 
 public class SportEvent {
@@ -19,13 +20,39 @@ public class SportEvent {
 
     @Override
     public String toString() {
+        DateTimeFormatterBuilder fm = new DateTimeFormatterBuilder();
         StringBuilder sb = new StringBuilder();
         sb
                 .append(title + " ")
-                .append("From: "+startDate+" ")
-                .append("To: "+endDate + " " )
+
+                .append("From: "+startDate.toLocalDate()+ " " )
+                .append(""+startDate.toLocalTime().withNano(0) + " " )
+
+                .append("To: "+endDate.toLocalDate()+ " " )
+                .append(""+endDate.toLocalTime().withNano(0) + " " )
+
                 .append("Result: "+result + " ")
                 .append("Bets: "+bets+"\n\n");
         return sb.toString();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public Result getResult() {
+        return result;
+    }
+
+    public List<Bet> getBets() {
+        return bets;
     }
 }
